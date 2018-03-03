@@ -1,0 +1,1 @@
+Fast and simple impuls generator for Arduino DUE and M0. All other boards are untested.
