@@ -1,11 +1,10 @@
 /*
- * Name:      impulsgen.ino
- * Generates simple impulses which can be used for another board
+ * Name:    impulsgen.ino
+ * Brief:   Generates simple impulses which can be used for another board.
  */
 
 #include "signalgen.h"
 
-// change
 
 const uint8_t channel[] = { 34, 35, 36, 37, 38, 39, 40, 41 };
 uint8_t amp;
@@ -26,19 +25,25 @@ void setup()
     randomSeed(analogRead(A0));
 #else
     randomSeed(analogRead(ADC0));
-#endif
-#endif
+#endif // _VARIANT_ARDUINO_ZERO_
+#endif // CHAOTIC
 
     pinMode(DOUBLYPIN, OUTPUT);
     digitalWrite(DOUBLYPIN, LOW);
+    
+    while (true)
+    {
+#ifdef CHAOTIC
+        amp = random(1, N_QUANT + 1);
+#endif // CHAOTIC
+
+        signalgen(&amp);
+    }
+    
+    exit(0);
 }
 
 void loop()
 {
-#ifdef CHAOTIC
-    // amp = (millis() % random(2, 20) == 0) ? random(1, N_QUANT + 1) : 0;
-    amp = random(1, N_QUANT + 1);
-#endif
-
-    signalgen(&amp);
+    exit(-1); // this shouldn't be normally
 }
