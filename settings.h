@@ -10,9 +10,15 @@
 #include <Arduino.h>
 
 
+#ifndef CHAOTIC
 #define CHAOTIC
+#endif // CHAOTIC
 
- // total channels number
+#ifndef NODEBUG
+#define NODEBUG
+#endif // NODEBUG
+
+// total channels number
 #define N_CHANNELS  5
 
 // total amplitudes number
