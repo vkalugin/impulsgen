@@ -10,10 +10,10 @@ static int dist_us = 1, width = 10;
 
 void signalgen(const uint8_t *amp)
 {
-#ifndef NODEBUG  
+#ifndef NO_RUNTIME_CHK  
     static uint8_t amp_compatibility = 3; // N_CHANNELS;
     if (amp == NULL)    {amp = &amp_compatibility;}
-#endif // NODEBUG
+#endif // NO_RUNTIME_CHK
 
 #ifdef _VARIANT_ARDUINO_ZERO_
     digitalWrite(2, HIGH);

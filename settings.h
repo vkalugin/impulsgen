@@ -14,9 +14,9 @@
 #define CHAOTIC
 #endif // CHAOTIC
 
-#ifndef NODEBUG
-#define NODEBUG
-#endif // NODEBUG
+#ifndef NO_RUNTIME_CHK
+#define NO_RUNTIME_CHK
+#endif // NO_RUNTIME_CHK
 
 // total channels number
 #define N_CHANNELS  5
